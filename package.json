@@ -1,0 +1,40 @@
+{
+  "name": "shells-link-checker",
+  "version": "0.1.0",
+  "description": "Perform a search, find links, ensure those links are active, ensure all of the links on those pages are active.  Keep track of these links on a regular basis.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DataMineMan/Shell-s-Link-Checker.git"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "body-parser",
+    "mongoose",
+    "bs-broken-links-checker",
+    "google",
+    "kue",
+    "pug",
+    "socketio"
+  ],
+  "author": "Jon Taylor",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DataMineMan/Shell-s-Link-Checker/issues"
+  },
+  "homepage": "https://github.com/DataMineMan/Shell-s-Link-Checker#readme",
+  "dependencies": {
+    "body-parser": "^1.18.1",
+    "bs-broken-links-checker": "^0.2.0",
+    "express": "^4.15.4",
+    "google": "^2.1.0",
+    "kue": "^0.11.6",
+    "mongoose": "^4.11.11",
+    "pug": "^2.0.0-rc.4",
+    "socketio": "^1.0.0"
+  }
+}

@@ -16,3 +16,8 @@ Setting up the structure.
     * socketio
 * Redis
 * MongoDB
+
+* Client Side
+    * jQuery
+    * jQueryUI
+    * UIKit Framework
