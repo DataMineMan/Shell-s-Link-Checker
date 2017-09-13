@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="69950749-2652-4240-8ae6-35e9e0786153" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.js" afterPath="$PROJECT_DIR$/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/pug/header.pug" afterPath="$PROJECT_DIR$/view/pug/header.pug" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/view/pug/index.pug" afterPath="$PROJECT_DIR$/view/pug/index.pug" />
-    </list>
+    <list default="true" id="69950749-2652-4240-8ae6-35e9e0786153" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -188,12 +184,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1505337524848</updated>
-      <workItem from="1505337526235" duration="2850000" />
+      <workItem from="1505337526235" duration="2894000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2850000" />
+    <option name="totallyTimeSpent" value="2894000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="797" extended-state="6" />
