@@ -31,9 +31,9 @@ app.use('*', function(req, res, next) {
     "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
-app.use('/js/', express.static(`${__dirname}/views/js`));
-app.use('/css/', express.static(`${__dirname}/views/css`));
-app.use('/fonts/', express.static(`${__dirname}/views/fonts`));
+app.use('/js/', express.static(`${__dirname}/view/js`));
+app.use('/css/', express.static(`${__dirname}/view/css`));
+app.use('/fonts/', express.static(`${__dirname}/view/fonts`));
 
 // Socket IO
 io.on('connection', (socket) => {
