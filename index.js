@@ -23,7 +23,7 @@ mongoose.Promise = global.Promise;
 // Pug
 // Body-Parser
 // Static Files
-app.set('view-engine', 'pug');
+app.set('view engine', 'pug');
 app.set('views', `${__dirname}/view/pug/`);
 app.use('*', function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
