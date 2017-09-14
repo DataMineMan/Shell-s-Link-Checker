@@ -12,8 +12,9 @@ const
   mongoose = require('mongoose'),
   http = require('http').Server(app),
   io = require('socket.io')(http),
-  pug = require('pug'),
-  port = process.env.port || 3000;
+  port = process.env.port || 3000,
+  cookieParser = require('cookie-parser'),
+  user = require('./user');
 
 // Mongoose Setup
 mongoose.connect('mongodb://localhost/b4b', {useMongoClient: true});
@@ -37,7 +38,8 @@ app.use('/fonts/', express.static(`${__dirname}/view/fonts`));
 
 // Socket IO
 io.on('connection', (socket) => {
-  socket.emit('y0', 'sup');
+
+  require('./sockets')(socket);
 });
 
 // Root Connection really should be the only connection.
