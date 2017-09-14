@@ -14,7 +14,8 @@ const
   io = require('socket.io')(http),
   port = process.env.port || 3000,
   cookieParser = require('cookie-parser'),
-  user = require('./user');
+  pug = require('pug'),
+  User = require('./user');
 
 // Mongoose Setup
 mongoose.connect('mongodb://localhost/b4b', {useMongoClient: true});
@@ -24,6 +25,7 @@ mongoose.Promise = global.Promise;
 // Pug
 // Body-Parser
 // Static Files
+// Cookie-Parser
 app.set('view engine', 'pug');
 app.set('views', `${__dirname}/view/pug/`);
 app.use('*', function(req, res, next) {
@@ -35,11 +37,44 @@ app.use('*', function(req, res, next) {
 app.use('/js/', express.static(`${__dirname}/view/js`));
 app.use('/css/', express.static(`${__dirname}/view/css`));
 app.use('/fonts/', express.static(`${__dirname}/view/fonts`));
+app.use(cookieParser());
 
 // Socket IO
 io.on('connection', (socket) => {
+  socket.emit('request user session');
+  socket.on('requested user session', function(session) {
+    let html = '';
+    if(session) {
+      let user = io.user[session];
+      user.readToken(session);
+      if(user.error) {
+        socket.user = null;
+        html = pug.compileFile('view/pug/loginMenu.pug')();
+        this.emit('requested', 'tag', 'menu', html);
+      } else {
+        socket.user = user;
+        if(io.sockets.connected[user.socket])
+          io.sockets.connected[user.socket].disconnect();
+        socket.user.socket = socket.id;
+        let html = pug.compileFile('view/pug/menu.pug')();
+        this.emit('requested', 'tag', 'menu', html);
+        socket.emit('update user session', socket.user.session);
+      }
+    } else {
+      html = pug.compileFile('view/pug/loginMenu.pug')();
+      this.emit('requested', 'tag', 'menu', html);
+    }
+    require('./sockets')(socket);
+  });
+});
 
-  require('./sockets')(socket);
+// Checking for a session.
+app.all('*', (req, res, next) => {
+  let user = null;
+  if(req.cookies.session) {
+    io.user[req.cookies.session] = new User();
+  }
+  next();
 });
 
 // Root Connection really should be the only connection.

@@ -8,7 +8,7 @@
  *
  */
 'use strict';
-
+const pug = require('pug');
 module.exports = function(socket) {
   socket.on('request', require('./request'));
 };
